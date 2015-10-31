@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/var/lib/openshift/5505b599e0b8cd0c010000c0/app-root/repo/compile-php/catridge/usr/libs/lib'
+libdir='/var/lib/openshift/5633ee4b7628e15c3600003b/app-root/runtime/repo/pehape/compile/catridge/usr/libs/lib'
