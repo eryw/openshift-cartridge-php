@@ -22,18 +22,18 @@ Currently this cartridge has the following versions:
 If you need another version you can compile it yourself and submit a PR to get it integrated.
 
 ## Configuration
-For the best result with this cartridge you are adviced to create a `.openshift/action_hooks/build` and add the following to it:  
+For the best result with this cartridge you are adviced to create a `.openshift/action_hooks/build` and add the following to it:
 ```BASH
 #!/bin/bash
 set -e
 
 # Build PHP extra's
 # Update conf/ini filesand install pecl extensions
-${OPENSHIFT_PHP_DIR}/bin/control build
+${OPENSHIFT_PHP_DIR}bin/control build
 ```
 
 Now it's time to configure nginx edit your `.openshift/nginx.conf.erb` and add the following within the `server` section:
-``` 
+```
 # pass the PHP scripts to PHP-FPM
 location ~ \.php$ {
     fastcgi_pass unix:<%= ENV['OPENSHIFT_PHP_SOCKET'] %>;
@@ -43,7 +43,7 @@ location ~ \.php$ {
 }
 ```
 
-### PHP.ini etc. 
+### PHP.ini etc.
 If you have created `.openshift/action_hooks/build` you can fully customize the PHP configuration.
 In your application create the following directories:
 ```
@@ -52,16 +52,16 @@ In your application create the following directories:
 ```
 
 In the `cli` directory create the `php.ini.erb` file and copy the content from [`conf/php.ini.erb`](https://github.com/boekkooi/openshift-cartridge-php/blob/master/conf/php.ini.erb) into it.
-Now you can customize the cli php configuration. 
+Now you can customize the cli php configuration.
 
 In the `fpm` directory create the `php.ini.erb` file and copy the content from [`conf/php-fpm.ini.erb`](https://github.com/boekkooi/openshift-cartridge-php/blob/master/conf/php-fpm.ini.erb) into it.
 Also create the `php-fpm.conf.erb` file and copy the content from [`conf/php-fpm.ini.erb`](https://github.com/boekkooi/openshift-cartridge-php/blob/master/conf/php-fpm.conf.erb) into it.
 Now you can customize the php-fpm configuration.
 
 ## Composer/PEAR
-Composer is installed by default and can be used by simply ssh to your application and typing in `composer`. 
+Composer is installed by default and can be used by simply ssh to your application and typing in `composer`.
 
-So where is PEAR? It's not there! Why? Read [The rise of Composer and the fall of PEAR](http://fabien.potencier.org/article/72/the-rise-of-composer-and-the-fall-of-pear). 
+So where is PEAR? It's not there! Why? Read [The rise of Composer and the fall of PEAR](http://fabien.potencier.org/article/72/the-rise-of-composer-and-the-fall-of-pear).
 If you really need PEAR then download it your self using [`php go-pear.phar`](http://pear.php.net/manual/en/installation.getting.php) and pray it work. *Any PR's related to PEAR or failure to install it will be ignored*
 
 ### PECL
@@ -87,14 +87,14 @@ rhc create-app nginx http://cartreflect-claytondev.rhcloud.com/github/boekkooi/o
 
 Now clone the repository and create a `php` folder. Now copy the `usr/compile` directory from [this](https://github.com/boekkooi/openshift-cartridge-php) repository.
 Now set the versions you need to compile in the `php/compile/versions` file. Commit and push the application repository.
-  
+
 SSH into your app and go to the compile folder (`cd ${OPENSHIFT_REPO_DIR}/php/compile`) and start compiling by running the following commands:
 ```BASH
 ./libs
 ./php
 ./libs_package
 ```
-Once compiling is done you can download the `php-{version}.tar.gz` from you application. 
+Once compiling is done you can download the `php-{version}.tar.gz` from you application.
 Extract the `php-{version}` from the archive and place them into the `openshift-cartridge-php/usr` folder.
 Last but not least edit the `openshift-cartridge-php/manifest.yml` and add the versions.
 

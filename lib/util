@@ -16,7 +16,7 @@ function config() {
     for file in "${!CONF_FILES[@]}"; do
         local CONF_TARGET_FILE=${CONF_FILES["${file}"]}
         local CONF_FILE=${OPENSHIFT_REPO_DIR}/.openshift/${file}
-        local TARGET_FILE=${OPENSHIFT_PHP_DIR}/conf/${CONF_TARGET_FILE}
+        local TARGET_FILE=${OPENSHIFT_PHP_DIR}conf/${CONF_TARGET_FILE}
 
         # Try to use the current OPENSHIFT_DEPLOYMENTS_DIR
         if [ ! -f "${CONF_FILE}" ]; then
@@ -25,7 +25,7 @@ function config() {
 
         # If no custom config is used use the default
         if [ ! -f "${CONF_FILE}" ]; then
-            CONF_FILE=${OPENSHIFT_PHP_DIR}/conf/${CONF_TARGET_FILE}.erb
+            CONF_FILE=${OPENSHIFT_PHP_DIR}conf/${CONF_TARGET_FILE}.erb
         fi
 
         if [ ! -f "${TARGET_FILE}" ] || [ "`oo-erb ${CONF_FILE} | md5sum | awk '{print $1}'`" != "`md5sum ${TARGET_FILE} | awk '{print $1}'`" ]; then
