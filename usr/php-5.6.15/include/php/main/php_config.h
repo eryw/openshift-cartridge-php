@@ -116,7 +116,7 @@
 /* #undef COMPILE_DL_MSSQL */
 
 /* Whether to build mysql as dynamic module */
-#define COMPILE_DL_MYSQL 1
+/* #undef COMPILE_DL_MYSQL */
 
 /* Whether to build mysqli as dynamic module */
 #define COMPILE_DL_MYSQLI 1
@@ -143,7 +143,7 @@
 /* #undef COMPILE_DL_PCRE */
 
 /* Whether to build pdo as dynamic module */
-#define COMPILE_DL_PDO 1
+/* #undef COMPILE_DL_PDO */
 
 /* Whether to build pdo_dblib as dynamic module */
 /* #undef COMPILE_DL_PDO_DBLIB */
@@ -164,7 +164,7 @@
 #define COMPILE_DL_PDO_PGSQL 1
 
 /* Whether to build pdo_sqlite as dynamic module */
-#define COMPILE_DL_PDO_SQLITE 1
+/* #undef COMPILE_DL_PDO_SQLITE */
 
 /* Whether to build pgsql as dynamic module */
 #define COMPILE_DL_PGSQL 1
@@ -209,7 +209,7 @@
 /* #undef COMPILE_DL_SPL */
 
 /* Whether to build sqlite3 as dynamic module */
-#define COMPILE_DL_SQLITE3 1
+/* #undef COMPILE_DL_SQLITE3 */
 
 /* Whether to build standard as dynamic module */
 /* #undef COMPILE_DL_STANDARD */
@@ -1194,7 +1194,7 @@
 /* #undef HAVE_MSSQL */
 
 /* Whether you have MySQL */
-#define HAVE_MYSQL 1
+/* #undef HAVE_MYSQL */
 
 /* */
 /* #undef HAVE_MYSQLILIB */
@@ -2171,7 +2171,7 @@
 #define MYSQLND_SSL_SUPPORTED 1
 
 /* Whether mysqlnd is enabled */
-#define MYSQL_USE_MYSQLND 1
+/* #undef MYSQL_USE_MYSQLND */
 
 /* */
 /* #undef NDBM_INCLUDE_FILE */
@@ -2225,7 +2225,7 @@
 #define PHP_BLOWFISH_CRYPT 1
 
 /* PHP build date */
-#define PHP_BUILD_DATE "2015-11-02"
+#define PHP_BUILD_DATE "2015-11-04"
 
 /* Define if your system has fork/vfork/CreateProcess */
 #define PHP_CAN_SUPPORT_PROC_OPEN 1

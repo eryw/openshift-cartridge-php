@@ -63,15 +63,14 @@ function install_php() {
       --with-iconv=shared \
       --enable-mbstring \
       --enable-hash \
-      --with-mysql=shared,mysqlnd \
       --with-mysqli=shared,mysqlnd \
-      --enable-pdo=shared \
+      --enable-pdo \
       --with-pdo-mysql=shared,mysqlnd \
-      --with-pdo-sqlite=shared \
+      --with-pdo-sqlite \
       --enable-shmop=shared \
       --enable-soap=shared \
       --enable-sockets \
-      --with-sqlite3=shared \
+      --with-sqlite3 \
       --with-regex=php \
       --enable-sysvmsg \
       --enable-sysvsem \
